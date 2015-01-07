@@ -12,3 +12,18 @@ class Game():
     def roll(self, pins):
         self._rolls[self._currentRoll] = pins
         self._currentRoll += 1
+
+    def _isSpare(self, frameIndex):
+        return self._rolls[frameIndex] + self._rolls[frameIndex  + 1] == 10
+ 
+    def _isStrike(self, frameIndex):
+        return self._rolls[frameIndex] == 10
+ 
+    def _sumOfBallsInFrame(self, frameIndex):
+        return self._rolls[frameIndex] + self._rolls[frameIndex  + 1]
+ 
+    def _spareBonus(self, frameIndex):
+        return self._rolls[frameIndex  + 2]
+ 
+    def _strikeBonus(self, frameIndex):
+        return self._rolls[frameIndex  + 1] + self._rolls[frameIndex  + 2]
