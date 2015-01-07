@@ -27,3 +27,18 @@ class Game():
  
     def _strikeBonus(self, frameIndex):
         return self._rolls[frameIndex  + 1] + self._rolls[frameIndex  + 2]
+
+    def score(self):
+        score = 0
+        frameIndex  = 0
+        for frame in range(10):
+            if self._isStrike(frameIndex):
+                score += 10 + self._strikeBonus(frameIndex)
+                frameIndex  += 1
+            elif self._isSpare(frameIndex):
+                score += 10 + self._spareBonus(frameIndex)
+                frameIndex  += 2
+            else:
+                score += self._sumOfBallsInFrame(frameIndex)
+                frameIndex  += 2
+        return score
