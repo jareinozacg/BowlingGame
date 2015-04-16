@@ -42,5 +42,5 @@ class Game():
                 score += self._sumOfBallsInFrame(frameIndex)
                 frameIndex  += 2
         return score
-    
-    #Cambio
+
+#Cambio
